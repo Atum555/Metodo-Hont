@@ -1,5 +1,4 @@
 import wx
-from wx.core import EXPAND
 
 class ProgramFrame(wx.Frame):
     def __init__(self):
@@ -110,41 +109,329 @@ class ProgramPanel(wx.Panel):
 
 
         # Temp
-        self.textBox_temp = wx.TextCtrl(
-            self, pos=(790,300), size=(120,50),
+        self.textBox_quantidade = wx.TextCtrl(
+            self, pos=(150,575), size=(80,30),
             style=wx.TE_RICH
         )
+        self.textBox_quantidade.SetFont(font_A)
         self.Bind(
             event=wx.EVT_TEXT,
-            handler=self.evt_textBox_handler,
-            source=self.textBox_temp
+            handler=self.evt_textBox_quantidade_handler,
+            source=self.textBox_quantidade
         )
 
-    def evt_textBox_handler(self, event):
+    def evt_textBox_quantidade_handler(self, event):
         try:
-            self.Row1.update_value(self.textBox_temp.GetValue())
-            self.Row2.update_value(self.textBox_temp.GetValue())
-            self.Row3.update_value(self.textBox_temp.GetValue())
-            self.Row4.update_value(self.textBox_temp.GetValue())
-            self.Row5.update_value(self.textBox_temp.GetValue())
-            self.Row6.update_value(self.textBox_temp.GetValue())
-            self.Row7.update_value(self.textBox_temp.GetValue())
-            self.Row8.update_value(self.textBox_temp.GetValue())
-            self.Row9.update_value(self.textBox_temp.GetValue())
-            self.Row10.update_value(self.textBox_temp.GetValue())
-            self.Row11.update_value(self.textBox_temp.GetValue())
-            self.Row12.update_value(self.textBox_temp.GetValue())
-            self.Row13.update_value(self.textBox_temp.GetValue())
+            self.Row1.update_value(self.textBox_quantidade.GetValue())
+            self.Row2.update_value(self.textBox_quantidade.GetValue())
+            self.Row3.update_value(self.textBox_quantidade.GetValue())
+            self.Row4.update_value(self.textBox_quantidade.GetValue())
+            self.Row5.update_value(self.textBox_quantidade.GetValue())
+            self.Row6.update_value(self.textBox_quantidade.GetValue())
+            self.Row7.update_value(self.textBox_quantidade.GetValue())
+            self.Row8.update_value(self.textBox_quantidade.GetValue())
+            self.Row9.update_value(self.textBox_quantidade.GetValue())
+            self.Row10.update_value(self.textBox_quantidade.GetValue())
+            self.Row11.update_value(self.textBox_quantidade.GetValue())
+            self.Row12.update_value(self.textBox_quantidade.GetValue())
+            self.Row13.update_value(self.textBox_quantidade.GetValue())
         except:
             pass
 
 class ValuesWindow(wx.Dialog):
     def __init__(self):
-        super().__init__(parent=None, title='Valores', size=(500,500),
+        super().__init__(parent=None, title='Valores', size=(655,130),
         style=wx.SYSTEM_MENU|wx.CAPTION|wx.CLOSE_BOX|wx.CLIP_CHILDREN)
 
         # Set the BackGroud Color
         self.SetBackgroundColour(wx.Colour(255,255,255))
+
+        # Add TextBoxes
+        self.textBox_1 = wx.TextCtrl(
+            self, pos=(10,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_1.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox1_evt_handler,
+            source=self.textBox_1
+        )
+
+
+        self.textBox_2 = wx.TextCtrl(
+            self, pos=(100,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_2.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox2_evt_handler,
+            source=self.textBox_2
+        )
+
+
+        self.textBox_3 = wx.TextCtrl(
+            self, pos=(190,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_3.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox3_evt_handler,
+            source=self.textBox_3
+        )
+
+
+        self.textBox_4 = wx.TextCtrl(
+            self, pos=(280,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_4.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox4_evt_handler,
+            source=self.textBox_4
+        )
+
+
+        self.textBox_5 = wx.TextCtrl(
+            self, pos=(370,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_5.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox5_evt_handler,
+            source=self.textBox_5
+        )
+
+
+        self.textBox_6 = wx.TextCtrl(
+            self, pos=(460,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_6.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox6_evt_handler,
+            source=self.textBox_6
+        )
+
+
+        self.textBox_7 = wx.TextCtrl(
+            self, pos=(550,10), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_7.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox7_evt_handler,
+            source=self.textBox_7
+        )
+        
+
+        self.textBox_8 = wx.TextCtrl(
+            self, pos=(10,50), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_8.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox8_evt_handler,
+            source=self.textBox_8
+        )
+
+
+        self.textBox_9 = wx.TextCtrl(
+            self, pos=(100,50), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_9.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox9_evt_handler,
+            source=self.textBox_9
+        )
+
+
+        self.textBox_10 = wx.TextCtrl(
+            self, pos=(190,50), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_10.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox10_evt_handler,
+            source=self.textBox_10
+        )
+
+
+        self.textBox_11 = wx.TextCtrl(
+            self, pos=(280,50), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_11.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox11_evt_handler,
+            source=self.textBox_11
+        )
+
+
+        self.textBox_12 = wx.TextCtrl(
+            self, pos=(370,50), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_12.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox12_evt_handler,
+            source=self.textBox_12
+        )
+
+
+        self.textBox_13 = wx.TextCtrl(
+            self, pos=(460,50), size=(80,30),
+            style=wx.TE_RICH
+        )
+        self.textBox_13.SetFont(frame.panel.font_D)
+        self.Bind(
+            event=wx.EVT_TEXT,
+            handler=self.textBox13_evt_handler,
+            source=self.textBox_13
+        )
+
+
+        # Fill them
+        try:
+            if not frame.panel.Row1.get_value1() == 0:
+                self.textBox_1.SetValue(str(frame.panel.Row1.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row2.get_value1() == 0:
+                self.textBox_2.SetValue(str(frame.panel.Row2.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row3.get_value1() == 0:
+                self.textBox_3.SetValue(str(frame.panel.Row3.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row4.get_value1() == 0:
+                self.textBox_4.SetValue(str(frame.panel.Row4.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row5.get_value1() == 0:
+                self.textBox_5.SetValue(str(frame.panel.Row5.get_value1()))
+        except:
+            pass
+
+        
+        try:
+            if not frame.panel.Row6.get_value1() == 0:
+                self.textBox_6.SetValue(str(frame.panel.Row6.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row7.get_value1() == 0:
+                self.textBox_7.SetValue(str(frame.panel.Row7.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row8.get_value1() == 0:
+                self.textBox_8.SetValue(str(frame.panel.Row8.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row9.get_value1() == 0:
+                self.textBox_9.SetValue(str(frame.panel.Row9.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row10.get_value1() == 0:
+                self.textBox_10.SetValue(str(frame.panel.Row10.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row11.get_value1() == 0:
+                self.textBox_11.SetValue(str(frame.panel.Row11.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row12.get_value1() == 0:
+                self.textBox_12.SetValue(str(frame.panel.Row12.get_value1()))
+        except:
+            pass
+
+
+        try:
+            if not frame.panel.Row13.get_value1() == 0:
+                self.textBox_13.SetValue(str(frame.panel.Row13.get_value1()))
+        except:
+            pass
+
+    def textBox1_evt_handler(self, event):
+        frame.panel.Row1.update_value(self.textBox_1.GetValue())
+
+    def textBox2_evt_handler(self, event):
+        frame.panel.Row2.update_value(self.textBox_2.GetValue())
+
+    def textBox3_evt_handler(self, event):
+        frame.panel.Row3.update_value(self.textBox_3.GetValue())
+
+    def textBox4_evt_handler(self, event):
+        frame.panel.Row4.update_value(self.textBox_4.GetValue())
+
+    def textBox5_evt_handler(self, event):
+        frame.panel.Row5.update_value(self.textBox_5.GetValue())
+
+    def textBox6_evt_handler(self, event):
+        frame.panel.Row6.update_value(self.textBox_6.GetValue())
+
+    def textBox7_evt_handler(self, event):
+        frame.panel.Row7.update_value(self.textBox_7.GetValue())
+
+    def textBox8_evt_handler(self, event):
+        frame.panel.Row8.update_value(self.textBox_8.GetValue())
+
+    def textBox9_evt_handler(self, event):
+        frame.panel.Row9.update_value(self.textBox_9.GetValue())
+
+    def textBox10_evt_handler(self, event):
+        frame.panel.Row10.update_value(self.textBox_10.GetValue())
+
+    def textBox11_evt_handler(self, event):
+        frame.panel.Row11.update_value(self.textBox_11.GetValue())
+
+    def textBox12_evt_handler(self, event):
+        frame.panel.Row12.update_value(self.textBox_12.GetValue())
+
+    def textBox13_evt_handler(self, event):
+        frame.panel.Row13.update_value(self.textBox_13.GetValue())
 
 class Row:
     def __init__(self, main_value, id):
@@ -164,6 +451,9 @@ class Row:
         self.valueBy13 = 0.0
         self.valueBy14 = 0.0
         self.valueBy15 = 0.0
+        self.valueBy16 = 0.0
+        self.valueBy17 = 0.0
+        self.valueBy18 = 0.0
         self.labels_exist = False
         
     def generate_labels(self):
@@ -194,12 +484,90 @@ class Row:
                 pos=(100 * self.id - 100,135), size=(90,30), style=wx.ALIGN_CENTER
             )
 
+            self.label_valueBy6 = wx.StaticText(
+                frame.panel, label='6',
+                pos=(100 * self.id - 100,165), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy7 = wx.StaticText(
+                frame.panel, label='7',
+                pos=(100 * self.id - 100,195), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy8 = wx.StaticText(
+                frame.panel, label='8',
+                pos=(100 * self.id - 100,225), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy9 = wx.StaticText(
+                frame.panel, label='9',
+                pos=(100 * self.id - 100,255), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy10 = wx.StaticText(
+                frame.panel, label='10',
+                pos=(100 * self.id - 100,285), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy11 = wx.StaticText(
+                frame.panel, label='11',
+                pos=(100 * self.id - 100,315), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy12 = wx.StaticText(
+                frame.panel, label='12',
+                pos=(100 * self.id - 100,345), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy13 = wx.StaticText(
+                frame.panel, label='13',
+                pos=(100 * self.id - 100,375), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy14 = wx.StaticText(
+                frame.panel, label='14',
+                pos=(100 * self.id - 100,405), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy15 = wx.StaticText(
+                frame.panel, label='15',
+                pos=(100 * self.id - 100,435), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy16 = wx.StaticText(
+                frame.panel, label='16',
+                pos=(100 * self.id - 100,465), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy17 = wx.StaticText(
+                frame.panel, label='17',
+                pos=(100 * self.id - 100,495), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
+            self.label_valueBy18 = wx.StaticText(
+                frame.panel, label='18',
+                pos=(100 * self.id - 100,525), size=(90,30), style=wx.ALIGN_CENTER
+            )
+
             # Set Fonts
             self.label_main_value.SetFont(frame.panel.font_D)
             self.label_valueBy2.SetFont(frame.panel.font_D)
             self.label_valueBy3.SetFont(frame.panel.font_D)
             self.label_valueBy4.SetFont(frame.panel.font_D)
             self.label_valueBy5.SetFont(frame.panel.font_D)
+            self.label_valueBy6.SetFont(frame.panel.font_D)
+            self.label_valueBy7.SetFont(frame.panel.font_D)
+            self.label_valueBy8.SetFont(frame.panel.font_D)
+            self.label_valueBy9.SetFont(frame.panel.font_D)
+            self.label_valueBy10.SetFont(frame.panel.font_D)
+            self.label_valueBy11.SetFont(frame.panel.font_D)
+            self.label_valueBy12.SetFont(frame.panel.font_D)
+            self.label_valueBy13.SetFont(frame.panel.font_D)
+            self.label_valueBy14.SetFont(frame.panel.font_D)
+            self.label_valueBy15.SetFont(frame.panel.font_D)
+            self.label_valueBy16.SetFont(frame.panel.font_D)
+            self.label_valueBy17.SetFont(frame.panel.font_D)
+            self.label_valueBy18.SetFont(frame.panel.font_D)
 
         self.labels_exist = True
 
@@ -208,12 +576,15 @@ class Row:
             float(main_value)
             self.main_value = float(main_value)
         except:
-            self.main_value = ''
-        if self.main_value == 0 or self.main_value == '':
+            self.main_value = 0
+
+        if self.main_value == 0:
+            self.generate_labels()
             self.clear_labels()
         else:
-            self.calValues()
             self.generate_labels()
+            self.clear_labels()
+            self.calValues()
             self.to_label_values()
 
     def clear_labels(self):
@@ -222,6 +593,38 @@ class Row:
         self.label_valueBy3.SetLabel('')
         self.label_valueBy4.SetLabel('')
         self.label_valueBy5.SetLabel('')
+        self.label_valueBy6.SetLabel('')
+        self.label_valueBy7.SetLabel('')
+        self.label_valueBy8.SetLabel('')
+        self.label_valueBy9.SetLabel('')
+        self.label_valueBy10.SetLabel('')
+        self.label_valueBy11.SetLabel('')
+        self.label_valueBy12.SetLabel('')
+        self.label_valueBy13.SetLabel('')
+        self.label_valueBy14.SetLabel('')
+        self.label_valueBy15.SetLabel('')
+        self.label_valueBy16.SetLabel('')
+        self.label_valueBy17.SetLabel('')
+        self.label_valueBy18.SetLabel('')
+
+        self.label_main_value.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy2.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy3.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy4.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy5.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy6.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy7.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy8.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy9.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy10.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy11.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy12.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy13.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy14.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy15.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy16.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy17.SetBackgroundColour(wx.Colour(255,255,255))
+        self.label_valueBy18.SetBackgroundColour(wx.Colour(255,255,255))
 
     def to_label_values(self):
         # 1
@@ -278,6 +681,136 @@ class Row:
                 pass
         self.label_valueBy5.SetLabel(str(temp1))
 
+        # 6
+        temp = [char for char in str(round(self.valueBy6,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy6.SetLabel(str(temp1))
+
+        # 7
+        temp = [char for char in str(round(self.valueBy7,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy7.SetLabel(str(temp1))
+
+        # 8
+        temp = [char for char in str(round(self.valueBy8,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy8.SetLabel(str(temp1))
+
+        # 9
+        temp = [char for char in str(round(self.valueBy9,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy9.SetLabel(str(temp1))
+
+        # 10
+        temp = [char for char in str(round(self.valueBy10,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy10.SetLabel(str(temp1))
+
+        # 11
+        temp = [char for char in str(round(self.valueBy11,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy11.SetLabel(str(temp1))
+
+        # 12
+        temp = [char for char in str(round(self.valueBy12,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy12.SetLabel(str(temp1))
+
+        # 13
+        temp = [char for char in str(round(self.valueBy13,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy13.SetLabel(str(temp1))
+
+        # 14
+        temp = [char for char in str(round(self.valueBy14,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy14.SetLabel(str(temp1))
+
+        # 15
+        temp = [char for char in str(round(self.valueBy15,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy15.SetLabel(str(temp1))
+
+        # 16
+        temp = [char for char in str(round(self.valueBy16,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy16.SetLabel(str(temp1))
+
+        # 17
+        temp = [char for char in str(round(self.valueBy17,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy17.SetLabel(str(temp1))
+
+        # 18
+        temp = [char for char in str(round(self.valueBy18,3))]
+        temp1 = ''
+        for x in range(7):
+            try:
+                temp1 += temp[x]
+            except:
+                pass
+        self.label_valueBy18.SetLabel(str(temp1))
+
     def calValues(self):
         self.valueBy2 = self.main_value / 2
         self.valueBy3 = self.main_value / 3
@@ -293,6 +826,9 @@ class Row:
         self.valueBy13 = self.main_value / 13
         self.valueBy14 = self.main_value / 14
         self.valueBy15 = self.main_value / 15
+        self.valueBy16 = self.main_value / 16
+        self.valueBy17 = self.main_value / 17
+        self.valueBy18 = self.main_value / 18
 
         if self.main_value.is_integer():
             self.main_value = int(self.main_value)
@@ -339,6 +875,14 @@ class Row:
         if self.valueBy15.is_integer():
             self.valueBy15 = int(self.valueBy15)
 
+        if self.valueBy16.is_integer():
+            self.valueBy16 = int(self.valueBy16)
+
+        if self.valueBy17.is_integer():
+            self.valueBy17 = int(self.valueBy17)
+
+        if self.valueBy18.is_integer():
+            self.valueBy18 = int(self.valueBy18)
 
     def get_value1(self):
         return self.main_value
@@ -384,6 +928,15 @@ class Row:
 
     def get_value15(self):
         return self.valueBy15
+
+    def get_value16(self):
+        return self.valueBy16
+
+    def get_value17(self):
+        return self.valueBy17
+
+    def get_value18(self):
+        return self.valueBy18
 
 if __name__ == "__main__":
     app = wx.App(False)
