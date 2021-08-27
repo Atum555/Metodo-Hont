@@ -132,12 +132,34 @@ class Row:
         self.value17 = 0.0
         self.value18 = 0.0
 
+    def get_values(self):
+        return {self.label_1: self.value1,
+                self.label_2: self.value2,
+                self.label_3: self.value3,
+                self.label_4: self.value4,
+                self.label_5: self.value5,
+                self.label_6: self.value6,
+                self.label_7: self.value7,
+                self.label_8: self.value8,
+                self.label_9: self.value9,
+                self.label_10: self.value10,
+                self.label_11: self.value11,
+                self.label_12: self.value12,
+                self.label_13: self.value13,
+                self.label_14: self.value14,
+                self.label_15: self.value15,
+                self.label_16: self.value16,
+                self.label_17: self.value17,
+                self.label_18: self.value18}
+
     def value_update(self, event):
         try:
             self.value1 = float(self.textBox.getValue())
             self.value_cal()
             self.value_to_label()
+            Extra.identify_selected()
         except:
+            self.value1 = 0
             if not self.textBox.getValue():
                 self.clear_labels()
 
@@ -218,24 +240,25 @@ class Row:
         self.label_18.setlabel('')
 
     def value_to_label(self):
-        self.label_1.setlabel(Extra.limit7(self.value1))
-        self.label_2.setlabel(Extra.limit7(self.value2))
-        self.label_3.setlabel(Extra.limit7(self.value3))
-        self.label_4.setlabel(Extra.limit7(self.value4))
-        self.label_5.setlabel(Extra.limit7(self.value5))
-        self.label_6.setlabel(Extra.limit7(self.value6))
-        self.label_7.setlabel(Extra.limit7(self.value7))
-        self.label_8.setlabel(Extra.limit7(self.value8))
-        self.label_9.setlabel(Extra.limit7(self.value9))
-        self.label_10.setlabel(Extra.limit7(self.value10))
-        self.label_11.setlabel(Extra.limit7(self.value11))
-        self.label_12.setlabel(Extra.limit7(self.value12))
-        self.label_13.setlabel(Extra.limit7(self.value13))
-        self.label_14.setlabel(Extra.limit7(self.value14))
-        self.label_15.setlabel(Extra.limit7(self.value15))
-        self.label_16.setlabel(Extra.limit7(self.value16))
-        self.label_17.setlabel(Extra.limit7(self.value17))
-        self.label_18.setlabel(Extra.limit7(self.value18))
+        if self.value1:
+            self.label_1.setlabel(Extra.limit7(self.value1))
+            self.label_2.setlabel(Extra.limit7(self.value2))
+            self.label_3.setlabel(Extra.limit7(self.value3))
+            self.label_4.setlabel(Extra.limit7(self.value4))
+            self.label_5.setlabel(Extra.limit7(self.value5))
+            self.label_6.setlabel(Extra.limit7(self.value6))
+            self.label_7.setlabel(Extra.limit7(self.value7))
+            self.label_8.setlabel(Extra.limit7(self.value8))
+            self.label_9.setlabel(Extra.limit7(self.value9))
+            self.label_10.setlabel(Extra.limit7(self.value10))
+            self.label_11.setlabel(Extra.limit7(self.value11))
+            self.label_12.setlabel(Extra.limit7(self.value12))
+            self.label_13.setlabel(Extra.limit7(self.value13))
+            self.label_14.setlabel(Extra.limit7(self.value14))
+            self.label_15.setlabel(Extra.limit7(self.value15))
+            self.label_16.setlabel(Extra.limit7(self.value16))
+            self.label_17.setlabel(Extra.limit7(self.value17))
+            self.label_18.setlabel(Extra.limit7(self.value18))
 
 class LabelValue:
     def __init__(self, row_id, label_id):
@@ -252,6 +275,12 @@ class LabelValue:
 
     def setlabel(self, labelToInsert):
         self.label.SetLabel(str(labelToInsert))
+
+    def purple(self):
+        self.label.SetForegroundColour(wx.Colour(255,0,255))
+
+    def white(self):
+        self.label.SetForegroundColour(wx.Colour(0,0,0))
 
 class TextBox:
     def __init__(self, row_id):
@@ -273,6 +302,30 @@ class TextBox:
     def getValue(self):
         return self.textBox.GetValue()
 
+class Quantidade:
+    def __init__(self):
+        
+        self.label = wx.StaticText(
+            programe.window, label='Quantidade:',
+            pos=(10,575), size=(10,20),
+            style= wx.ALIGN_LEFT
+        )
+        self.label.SetFont(programe.window.font_A)
+
+        self.textBox = wx.TextCtrl(
+            programe.window, value='1',
+            pos=(135,573), size=(80,30)
+        )
+        self.textBox.SetFont(programe.window.font_A)
+
+        self.textBox.Bind(
+            event=wx.EVT_TEXT,
+            handler=Extra.quantidade_evt
+        )
+
+    def getValue(self):
+        return self.textBox.GetValue()
+
 class Extra:
     def __init__(self):
         self.row1 = Row(1)
@@ -289,6 +342,52 @@ class Extra:
         self.row12 = Row(12)
         self.row13 = Row(13)
 
+        self.quantidade = Quantidade()
+    
+    def get_rows(self):
+        return [self.row1, self.row2, self.row3, self.row4, self.row5, self.row6, self.row7, self.row8, self.row9, self.row10, self.row11, self.row12, self.row13]
+
+    @staticmethod
+    def creat_dict():
+        list_rows = variables.get_rows()
+        list_values = []
+        for x in list_rows:
+            list_values.append(x.get_values())
+
+        return [list_rows, list_values]
+
+    @staticmethod
+    def identify_selected():
+        # Get values
+        temp = Extra.creat_dict()
+        list_rows = temp[0]
+        list_values = temp[1]
+
+        # Clear previous
+        for y in list_values:
+            for x in y:
+                x.white()
+
+        # Get Biggest
+        done = 0
+        while done < int(variables.quantidade.getValue()):
+            biggest = 0
+            for y in list_values:
+                for x in y:
+                    if y[x] > biggest:
+                        biggest = y[x]
+
+            for y in list_values:
+                for x in y:
+                    if y[x] == biggest:
+                        y[x] = 0
+                        x.purple()
+            done += 1
+
+        for x in list_rows:
+            x.clear_labels()
+            x.value_to_label()
+
     @staticmethod
     def limit7(given):
         all = [char for char in str(given)]
@@ -300,8 +399,12 @@ class Extra:
                 pass
         return str(only7)
 
+    @staticmethod
+    def quantidade_evt(event):
+        Extra.identify_selected()
+
 if __name__ == '__main__':
     app = wx.App(False)
     programe = Programe()
-    rest = Extra()
+    variables = Extra()
     app.MainLoop()
