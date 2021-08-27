@@ -152,6 +152,26 @@ class Row:
                 self.label_17: self.value17,
                 self.label_18: self.value18}
 
+    def clear_values(self):
+        self.value1 = 0
+        self.value2 = 0
+        self.value3 = 0
+        self.value4 = 0
+        self.value5 = 0
+        self.value6 = 0
+        self.value7 = 0
+        self.value8 = 0
+        self.value9 = 0
+        self.value10 = 0
+        self.value11 = 0
+        self.value12 = 0
+        self.value13 = 0
+        self.value14 = 0
+        self.value15 = 0
+        self.value16 = 0
+        self.value17 = 0
+        self.value18 = 0
+
     def value_update(self, event):
         try:
             self.value1 = float(self.textBox.getValue())
@@ -159,7 +179,8 @@ class Row:
             self.value_to_label()
             Extra.identify_selected()
         except:
-            self.value1 = 0
+            self.clear_values()
+            Extra.identify_selected()
             if not self.textBox.getValue():
                 self.clear_labels()
 
@@ -368,7 +389,7 @@ class Extra:
             for x in y:
                 x.white()
 
-        # Get Biggest
+        # Get Biggests
         done = 0
         while done < int(variables.quantidade.getValue()):
             biggest = 0
